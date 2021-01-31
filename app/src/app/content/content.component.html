@@ -1,20 +1,151 @@
-<div class="blob" fxLayout="column" fxLayoutAlign="start stretch" fxFLex="100">
-    <div fxLayout="column" fxFlex="30" fxLayoutGap="10px" fxLayoutAlign="center end">
-        <div fxLayout="column" fxLayoutAlign="end center">
-            <span style="font-size: xx-large;max-width: 18rem;">We make it Super Simple</span>
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+    <div class="blob" fxLayout="column" fxLayoutAlign="start stretch" fxFLex="10">
+        <div fxLayout="column" fxFlex="30" fxLayoutGap="10px" fxLayoutAlign="center end">
+            <div fxLayout="column" fxLayoutAlign="end center">
+                <span style="font-size: xx-large;max-width: 18rem;">We make it Super Simple</span>
+            </div>
+            <div fxLayout="column" style="width: 18rem;" fxLayoutAlign="start start">
+                <img class="line-3" src="../../assets/images/Line 3.svg" />
+            </div>
         </div>
-        <div fxLayout="column" style="width: 18rem;" fxLayoutAlign="start start">
-            <img class="line-3" src="../../assets/images/Line 3.svg" />
+        <div fxLayout="column" fxFlex="90" fxLayoutAlign="start end">
+            <div fxLayout="column" style="width: 50%;" fxFlex="100" fxLayoutAlign="start start">
+                <img class="collect-img" src="../../assets/images/collect_img-video@2x.png" />
+            </div>
+            <div fxLayout="column" style="width: 50%;z-index: 2;" fxFlex="100" fxLayoutAlign="end end">
+                <img class="dots-1" src="../../assets/images/accounting_dots.svg" />
+            </div>
         </div>
     </div>
-    <div fxLayout="column" fxFlex="70" fxLayoutAlign="start end">
-        <div fxLayout="column" style="width: 50%;" fxFlex="100" fxLayoutAlign="start start">
-            <img class="collect-img" src="../../assets/images/collect_img-video@2x.png" />
-        </div>
+    <div fxLayout="column" fxFlex="80"  fxLayoutAlign="end end">
+        <img class="big-circle" src="../../assets/images/big-circle.svg" />
         <div fxLayout="column" style="width: 50%;z-index: 2;" fxFlex="100" fxLayoutAlign="end end">
-            <img class="dots-1" src="../../assets/images/accounting_dots.svg" />
+            <img style="    top: 38em;position: absolute;width: 15rem;" src="../../assets/images/accounting_dots.svg" />
         </div>
+    
+            <div fxLayout="row" style="position: absolute;top: 10em;" fxLayoutAlign="end end" fxLayoutGap="10px">
+                <div fxLayout="row wrap" fxLayoutAlign="end end">
+                    <mat-card style="height: 27rem;
+                    width: 21rem;
+                    border-radius: 5%;
+                    padding: 0;">
+                        <mat-card-content align="center" style="background: rgb(255 255 255);border-radius: 10%;">
+                            <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="center stretch" [fxShow]="true"
+                                [fxHide]="false">
+                                <div style="background:whitesmoke;padding: 10px;">
+                                    <span
+                                        style="margin:10px;background:whitesmoke;font-size:16px; font-weight:100;text-align:center">
+                                        Eligibity Calculator</span>
+                                </div>
+                                <div style="text-align: left;padding: 15px">
+                                    <div>
+                                        <span>
+                                            Monthly Income
+                                        </span>
+                                        <div>
+                                            <span style="font-weight: 300;margin-top: 20px;">₹ {{value}}</span>
+                                            <mat-slider style="width: 100%;" [disabled]="disabled" [invert]="invert" [max]="max"
+                                                [min]="min" [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="tickInterval"
+                                                [(ngModel)]="value" [vertical]="vertical" (change)="onSliderChange($event,'value')">
+                                            </mat-slider>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Monthly Expense
+                                        </span>
+                                        <div>
+                                            <span style="font-weight: 300;margin-top: 20px;">₹ {{value1}}</span>
+                                            <mat-slider style="width: 100%;" [disabled]="disabled" [invert]="invert" [max]="max"
+                                                [min]="min" [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="tickInterval"
+                                                [(ngModel)]="value1" [vertical]="vertical"
+                                                (change)="onSliderChange($event,'value1')">
+                                            </mat-slider>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            Repayment Tenure
+                                        </span>
+                                        <div>
+                                            <select #tenure>
+                                                <option value="i" *ngFor ='let i of tenureList'>{{i}}</option>
+                                                <!-- <option selected value="3">3 months</option>
+                                                <option value="6">6 months</option>
+                                                <option value="9">9 months</option>
+                                                <option value="12">12 months</option> -->
+                                            </select>
+                                        </div>
+                                        <div>
+            
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;
+                                    place-content: flex-start space-around;
+                                    align-items: center;margin-bottom: 10px;">
+                                        <span>
+                                            Do you Have existing Loan
+                                        </span>
+                                        <div>
+                                            <mat-slide-toggle class="example-margin" [color]="accent">
+                                            </mat-slide-toggle>
+                                        </div>
+                                        <div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;
+                                    place-content: flex-start;
+                                    flex-direction: column;
+                                    align-items: flex-start;">
+                                        <span>
+                                            EMI of existing Loans(optional)
+                                        </span>
+                                        <div>
+                                            <mat-form-field>
+                                                <input type="number" matInput [(ngModel)]="ExistingEmi">
+                                                <mat-icon matPrefix> &#x20B9;&nbsp; </mat-icon>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+            
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div fxLayout="row" style="padding-bottom:8rem" fxLayoutAlign="center start" fxLayoutGap="gappx">
+                    <mat-card style="height: 17rem;
+                        padding-top: 3rem;
+                    width: 10rem;
+                    border-radius: 5%;
+                    padding: 0;background: #684999;">
+                        <mat-card-content style="    height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        place-content: center" align="center">
+                            <span style="color: whitesmoke;">
+                                Loan Amount
+                            </span>
+                            <span style="font-weight: 300; margin:20px;color: white;">₹ {{loanAmount}}</span>
+                            <span style="color: whitesmoke;">
+                                Your EMI will be
+                            </span>
+                            <span style="font-weight: 400;margin: 20px;color: white;">₹ {{emiAmount | number:'1.0-2'}}</span>
+                            <div>
+                                <button class="primary-button">
+                                    Get Money
+                                </button>
+                            </div>
+            
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            
+            </div>
+        <!-- </div> -->
     </div>
 </div>
 
-<img class="big-circle" src="../../assets/images/big-circle.svg" />
