@@ -11,6 +11,7 @@
 
 body,
 html {
+    overflow-x: hidden;
     margin: 0;
     font-family: "Montserrat", Open Sans, sans-serif;
     cursor: pointer;
@@ -55,6 +56,87 @@ html {
 }
 
 .big-circle {
-    background: url('./assets/images/big-circle.svg');
+    width: 62%;
+    right: -4em;
+    position: absolute;
+    top: -13em;
 }
 
+.blob {
+    background: transparent url("./assets/images/blob-small.svg") 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    top: 6em;
+    left: -10em;
+    width: 40em;
+    height: 40em;
+}
+.line-3 {
+    width: 15rem;
+}
+
+.collect-img {
+    width: 25rem;
+    left: 20em;
+}
+.dots-1 {
+    position: absolute;
+    top: 24em;
+    left: 25em;
+}
+
+.wave {
+    position: absolute;
+    left: -12em;
+    top: 6em;
+    z-index: -1;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.card-container {
+    height: 50rem;
+    width: 75%;
+}
+.sub .card {
+    width: 22rem;
+    height: 15rem;
+    padding: 1.5rem;
+    box-shadow: 0px 0px 30px #2321321f;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    opacity: 1;
+    margin-left: 15px;
+    background: white;
+    font-family: "Open Sans", sans-serif;
+}
+.sub-font {
+    font-family: "Open Sans", sans-serif;
+    width: 40%;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+    font-size: 25px;
+}
+.sub .card-container :hover {
+    .text1-color {
+        color: var(--secondary-color);
+    }
+    .text2-color {
+        color: var(--ternary-color);
+    }
+    border: 1px solid #c2a4d9;
+    background: #c2a4d9;
+    opacity: 0.5;
+}
+.img-width {
+    width: 70px;
+    height: 70px;
+}
+
+.text2-color {
+    color: #999999;
+}
+.text1-color {
+    font-size: 15px;
+    color: #333333;
+}
